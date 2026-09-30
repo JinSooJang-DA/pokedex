@@ -1,24 +1,22 @@
-const LIMIT = 20;
-let currentOffset = 0;
-let allPokemon = [];
-
+// 1. 20마리 기본 목록(results)을 가져오는 함수 (약 8줄)
 async function fetchPokemonList() {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${currentOffset}`);
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${currentOffset}`;
+    const response = await fetch(url);
     const data = await response.json();
-
-    for (let i = 0; i < data.results.length; i++) {
-      const pokemon = data.results[i];
-      const detailResponse = await fetch(pokemon.url);
-      const pokemonDetail = await detailResponse.json();
-      allPokemon.push(pokemonDetail);
-    }
-
-    console.log("20마리 가져오기 완료:", allPokemon);
+    
+    // 상세 가져오기 함수를 부르고, 끝날 때까지 기다린다!
+    await fetchPokemonDetails(data.results);
   } catch (error) {
-    console.error("데이터를 가져오는 중 오류 발생:", error);
+    console.error("데이터 로딩 실패:", error);
   }
 }
 
-// 브라우저가 열리면 바로 테스트할 수 있도록 함수 호출!
-fetchPokemonList();
+// 2. 받은 목록으로 20마리 상세 정보를 차곡차곡 모으는 전담 함수 (약 8줄)
+async function fetchPokemonDetails(results) {
+  for (let i = 0; i < results.length; i++) {
+    const detailResponse = await fetch(results[i].url);
+    const pokemonDetail = await detailResponse.json();
+    allPokemon.push(pokemonDetail);
+  }
+}
