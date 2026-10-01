@@ -55,5 +55,4 @@ async function loadMorePokemon() {
   await fetchPokemonList();
 }
 
-// 최초 실행!
 fetchPokemonList();
