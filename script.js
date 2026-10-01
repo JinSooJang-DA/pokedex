@@ -49,5 +49,11 @@ function renderPokemonCards() {
   }
 }
 
+// 5. Load More handler
+async function loadMorePokemon() {
+  currentOffset += LIMIT;
+  await fetchPokemonList();
+}
+
 // 최초 실행!
 fetchPokemonList();
