@@ -1,21 +1,20 @@
 header {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
 }
 
 #search-input {
-  width: 250px;
-  padding: 10px 16px;
-  border-radius: 20px; /* 둥글둥글한 알약 모양 */
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 14px;
+    width: 250px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
 }
-
 
 .pokemon-card {
     width: 150px;
@@ -47,29 +46,68 @@ header {
 }
 
 #load-more-btn {
-  display: block;
-  margin: 40px auto;
-  padding: 12px 28px;
+    display: block;
+    margin: 40px auto;
+    padding: 12px 28px;
 
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
 
-  background-color: #ff5350;
-  border: none;
-  border-radius: 25px;
+    background-color: #ff5350;
+    border: none;
+    border-radius: 25px;
 
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(255, 83, 80, 0.3);
-  transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 83, 80, 0.3);
+    transition: all 0.2s ease-in-out;
 }
 
 #load-more-btn:hover {
-  background-color: #e04441;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255, 83, 80, 0.4);
+    background-color: #e04441;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 83, 80, 0.4);
 }
 
 #load-more-btn:active {
-  transform: translateY(1px);
+    transform: translateY(1px);
+}
+
+.grass {
+    background-color: #defde0;
+}
+
+.fire {
+    background-color: #fddfdf;
+}
+
+.water {
+    background-color: #def3fd;
+}
+
+.bug {
+    background-color: #f8d5a3;
+}
+
+.normal {
+    background-color: #f5f5f5;
+}
+
+.electric {
+    background-color: #fcf7de;
+}
+
+.poison {
+    background-color: #e6ccff;
+}
+
+.pokemon-type {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
 }
