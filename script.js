@@ -9,9 +9,9 @@ async function fetchPokemonList() {
     const data = await response.json();
 
     await fetchPokemonDetails(data.results);
-    renderPokemonCards();
+    renderPokemonCards(allPokemon);
   } catch (error) {
-    console.error("데이터 로딩 실패:", error);
+    console.error("Failed to load data.:", error);
   }
 }
 
@@ -23,12 +23,12 @@ async function fetchPokemonDetails(results) {
   }
 }
 
-function renderPokemonCards() {
+function renderPokemonCards(pokemonList) {
   const container = document.getElementById("pokedex-container");
   container.innerHTML = "";
 
-  for (let i = 0; i < allPokemon.length; i++) {
-    const pokemon = allPokemon[i];
+  for (let i = 0; i < pokemonList.length; i++) {
+    const pokemon = pokemonList[i];
     container.innerHTML += createPokemonCardTemplate(pokemon);
   }
 }
@@ -36,6 +36,21 @@ function renderPokemonCards() {
 async function loadMorePokemon() {
   currentOffset += LIMIT;
   await fetchPokemonList();
+}
+
+function filterPokemon() {
+  let searchPokemonName = document.getElementById('search-input').value.toLowerCase();
+  let filteredPokemon = [];
+
+  for (let i = 0; i < allPokemon.length; i++) {
+    let pokemon = allPokemon[i];
+    
+    if (pokemon.name.toLowerCase().includes(searchPokemonName)) {
+      filteredPokemon.push(pokemon);
+    }
+  }
+
+  renderPokemonCards(filteredPokemon);
 }
 
 fetchPokemonList();
