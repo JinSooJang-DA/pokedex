@@ -26,10 +26,9 @@ body.no-scroll {
   max-width: 100%;
 }
 
-
 .pokedex-logo {
-  width: 320px;
-  max-width: 90vw; 
+  width: 240px;     
+  max-width: 80vw;
   height: auto;  
   object-fit: contain;
   transition: transform 0.2s ease-in-out;
