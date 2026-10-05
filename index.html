@@ -9,19 +9,33 @@
 </head>
 
 <body>
-  <!-- Header section -->
-  <header>
-    <h1>Pokédex</h1>
-    <input type="text" id="search-input" oninput="filterPokemon()" placeholder="Search Pokémon...">
-  </header>
+    <div id="loading-spinner" class="spinner-overlay d-none">
+        <div class="spinner"></div>
+    </div>
+    <!-- Header section -->
+    <header>
+        <h1>Pokédex</h1>
+        <input type="text" id="search-input" oninput="filterPokemon()" placeholder="Search Pokémon...">
+    </header>
 
-  <!-- Main content section -->
-  <main>
-    <div id="pokedex-container"></div>
-    <button id="load-more-btn" onclick="loadMorePokemon()">Load More</button>
-  </main>
-<script src="./scripts/templates.js"></script>
-  <script src="./script.js"></script>
+    <!-- Main content section -->
+    <main>
+        <div id="pokedex-container"></div>
+        <button id="load-more-btn" onclick="loadMorePokemon()">Load More</button>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div id="pokemon-modal" class="modal-overlay d-none" onclick="closeModal()">
+
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal()">X</button>
+            <div id="modal-body">
+                <!-- for detail Info of Pokemon -->
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
