@@ -1,4 +1,4 @@
-function createPokemonCardTemplate(pokemon, index) {
+function createPokemonCardTemplate(pokemon) {
   const imageUrl = pokemon.sprites.other["official-artwork"].front_default;
   const primaryType = pokemon.types[0].type.name;
 
@@ -21,7 +21,6 @@ function createPokemonCardTemplate(pokemon, index) {
 function createPokemonStatsTemplate(pokemon) {
   let statsHtml = "";
 
-  // for (let i = 0; i < pokemon.stats.length; i++) {
   for (let i = 0; i < 3; i++) {
     const stat = pokemon.stats[i];
     const statName = stat.stat.name;

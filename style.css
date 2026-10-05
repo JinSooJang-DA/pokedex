@@ -9,18 +9,35 @@ body.no-scroll {
   overflow: hidden;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding: 20px;
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 16px;
+  width: 100%;
 }
 
-header h1 {
-    color: #ffffff;
-    margin: 0;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+
+.pokedex-logo {
+  width: 320px;
+  max-width: 90vw; 
+  height: auto;  
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.pokedex-logo:hover {
+  transform: scale(1.05);
 }
 
 #search-input {
@@ -28,7 +45,7 @@ header h1 {
     padding: 10px 16px;
     border-radius: 20px;
     border: 1px solid #444444;
-    background-color: #2b2b2b; /* 검색창도 짙은 회색 */
+    background-color: #2b2b2b;
     color: #ffffff;
     outline: none;
     font-size: 14px;
@@ -188,7 +205,7 @@ header h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px 0;
+  margin-bottom: 16px;
 }
 
 .modal-pokemon-img {
@@ -311,7 +328,19 @@ header h1 {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
+  .header {
+    padding: 14px 10px;
+  }
+
+  #search-input {
+    width: 160px;        /* 가로폭을 좀 더 컴팩트하게 축소 */
+    padding: 8px 14px;   /* 두께를 날렵하게 다듬기 */
+    font-size: 13px;     /* 폰트 크기 살짝 축소 */
+  }
+  .pokedex-logo {
+    width: 220px;
+  }
   .modal-content {
     width: 100%;
     height: 100%;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -12,25 +13,23 @@
     <div id="loading-spinner" class="spinner-overlay d-none">
         <div class="spinner"></div>
     </div>
-    <!-- Header section -->
-    <header>
-        <h1>Pokédex</h1>
+
+    <header class="header">
+        <img src="./assets/img/pokedex-title.webp" alt="Pokédex Logo" class="pokedex-logo">
         <input type="text" id="search-input" oninput="filterPokemon()" placeholder="Search Pokémon...">
     </header>
 
-    <!-- Main content section -->
     <main>
         <div id="pokedex-container"></div>
         <button id="load-more-btn" onclick="loadMorePokemon()">Load More</button>
     </main>
 
-    <!-- Modal Overlay -->
     <div id="pokemon-modal" class="modal-overlay d-none" onclick="closeModal()">
 
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closeModal()">X</button>
             <div id="modal-body">
-                <!-- for detail Info of Pokemon -->
+
             </div>
         </div>
     </div>
