@@ -2,8 +2,8 @@ function createPokemonCardTemplate(pokemon, secondaryClass, typesHtml) {
   return `
     <div class="pokemon-card ${pokemon.types[0].type.name}" onclick="openModal(${pokemon.id})">
       <div class="card-header">
-        <h3 class="pokemon-name">${pokemon.name}</h3>
         <span class="pokemon-id">#${pokemon.id}</span>
+        <h3 class="pokemon-name">${pokemon.name}</h3>
       </div>
       <div class="card-body">
         <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}" class="pokemon-img ${secondaryClass}">
@@ -34,9 +34,13 @@ function createSingleStatRowTemplate(statName, statValue, fillWidth) {
 function createPokemonDetailTemplate(pokemon, secondaryClass, heightMeters, weightKg, statsHtml) {
   return `
     <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-pokemon-id">#${pokemon.id}</span>
+      </div>
       <h2 class="modal-pokemon-name">${pokemon.name}</h2>
-      <span class="modal-pokemon-id">#${pokemon.id}</span>
-      <button class="close-btn" data-id="close-dialog-button" onclick="closeModal()">X</button>
+      <div class="modal-header-right">
+        <button class="close-btn" data-id="close-dialog-button" onclick="closeModal()">X</button>
+      </div>
     </div>
     
     <div class="modal-img-container">

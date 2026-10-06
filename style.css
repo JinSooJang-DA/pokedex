@@ -85,11 +85,34 @@ body.no-scroll {
   padding: 0 4px;
 }
 
+.pokemon-id {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pokemon-card:hover .pokemon-id {
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
 .pokemon-name {
   display: inline-block;
   flex: 1; 
   box-sizing: border-box;
-  margin: 0 8px 0 0; 
+  margin: 0 0 0 8px; 
   padding: 3px 8px;
   font-size: 11px; 
   font-weight: 700;
@@ -126,29 +149,6 @@ body.no-scroll {
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   }
-}
-
-.pokemon-id {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 8px;
-  font-size: 11px;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(0, 0, 0, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 10px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.pokemon-card:hover .pokemon-id {
-  border-color: rgba(255, 255, 255, 0.8);
-  transform: scale(1.05);
 }
 
 .card-body {
@@ -286,29 +286,25 @@ body.no-scroll {
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 12px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.modal-pokemon-name {
-  display: inline-block;
-  margin: 0;
-  padding: 4px 14px;
-  font-size: 14px;
-  font-weight: 700;
-  text-align: center;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 12px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  animation: cardNameFlash 0.7s ease-out 0.8s 1 backwards;
+.modal-header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.modal-header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .modal-pokemon-id {
@@ -326,8 +322,25 @@ body.no-scroll {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   letter-spacing: 0.5px;
   flex-shrink: 0;
-  margin-right: auto;
-  margin-left: 6px;
+}
+
+.modal-pokemon-name {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  animation: cardNameFlash 0.7s ease-out 0.8s 1 backwards;
 }
 
 .close-btn {
@@ -376,7 +389,6 @@ body.no-scroll {
   }
   to {
     transform: scale(1.08) translateY(0);
-    opacity: 1;
   }
 }
 
@@ -576,7 +588,7 @@ body.no-scroll {
 .shadow-modal-fighting { filter: drop-shadow(0 0 12px #c03028) drop-shadow(0 0 4px #c03028) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-psychic  { filter: drop-shadow(0 0 12px #f85888) drop-shadow(0 0 4px #f85888) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-ghost    { filter: drop-shadow(0 0 12px #705898) drop-shadow(0 0 4px #705898) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-ice      { filter: drop-shadow(0 0 12px #98d8d8) drop-shadow(0 0 4px #98d8d8) drop-shadow(0 0 1px #ffffff); }
+.shadow-ice            { filter: drop-shadow(0 0 12px #98d8d8) drop-shadow(0 0 4px #98d8d8) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-dragon   { filter: drop-shadow(0 0 12px #7038f8) drop-shadow(0 0 4px #7038f8) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-steel    { filter: drop-shadow(0 0 12px #b8b8d0) drop-shadow(0 0 4px #b8b8d0) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-dark     { filter: drop-shadow(0 0 12px #705848) drop-shadow(0 0 4px #705848) drop-shadow(0 0 1px #ffffff); }
