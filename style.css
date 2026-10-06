@@ -551,44 +551,44 @@ body.no-scroll {
   }
 }
 
-.shadow-poison   { filter: drop-shadow(0 0 4px #a040a0) drop-shadow(0 0 1px #a040a0); }
-.shadow-flying   { filter: drop-shadow(0 0 4px #a98ff3) drop-shadow(0 0 1px #a98ff3); }
+.shadow-normal   { filter: drop-shadow(0 0 4px #a8a878) drop-shadow(0 0 1px #a8a878); }
+.shadow-fire     { filter: drop-shadow(0 0 4px #f08030) drop-shadow(0 0 1px #f08030); }
 .shadow-water    { filter: drop-shadow(0 0 4px #6890f0) drop-shadow(0 0 1px #6890f0); }
 .shadow-grass    { filter: drop-shadow(0 0 4px #78c850) drop-shadow(0 0 1px #78c850); }
-.shadow-fire     { filter: drop-shadow(0 0 4px #f08030) drop-shadow(0 0 1px #f08030); }
-.shadow-bug      { filter: drop-shadow(0 0 4px #a8b820) drop-shadow(0 0 1px #a8b820); }
-.shadow-normal   { filter: drop-shadow(0 0 4px #a8a878) drop-shadow(0 0 1px #a8a878); }
 .shadow-electric { filter: drop-shadow(0 0 4px #f8d030) drop-shadow(0 0 1px #f8d030); }
-.shadow-ground   { filter: drop-shadow(0 0 4px #e0c068) drop-shadow(0 0 1px #e0c068); }
-.shadow-rock     { filter: drop-shadow(0 0 4px #b8a038) drop-shadow(0 0 1px #b8a038); }
-.shadow-fairy    { filter: drop-shadow(0 0 4px #ee99ac) drop-shadow(0 0 1px #ee99ac); }
-.shadow-fighting { filter: drop-shadow(0 0 4px #c03028) drop-shadow(0 0 1px #c03028); }
-.shadow-psychic  { filter: drop-shadow(0 0 4px #f85888) drop-shadow(0 0 1px #f85888); }
-.shadow-ghost    { filter: drop-shadow(0 0 4px #705898) drop-shadow(0 0 1px #705898); }
 .shadow-ice      { filter: drop-shadow(0 0 4px #98d8d8) drop-shadow(0 0 1px #98d8d8); }
+.shadow-fighting { filter: drop-shadow(0 0 4px #c03028) drop-shadow(0 0 1px #c03028); }
+.shadow-poison   { filter: drop-shadow(0 0 4px #a040a0) drop-shadow(0 0 1px #a040a0); }
+.shadow-ground   { filter: drop-shadow(0 0 4px #e0c068) drop-shadow(0 0 1px #e0c068); }
+.shadow-flying   { filter: drop-shadow(0 0 4px #a890f0) drop-shadow(0 0 1px #a890f0); }
+.shadow-psychic  { filter: drop-shadow(0 0 4px #f85888) drop-shadow(0 0 1px #f85888); }
+.shadow-bug      { filter: drop-shadow(0 0 4px #a8b820) drop-shadow(0 0 1px #a8b820); }
+.shadow-rock     { filter: drop-shadow(0 0 4px #b8a038) drop-shadow(0 0 1px #b8a038); }
+.shadow-ghost    { filter: drop-shadow(0 0 4px #705898) drop-shadow(0 0 1px #705898); }
 .shadow-dragon   { filter: drop-shadow(0 0 4px #7038f8) drop-shadow(0 0 1px #7038f8); }
 .shadow-steel    { filter: drop-shadow(0 0 4px #b8b8d0) drop-shadow(0 0 1px #b8b8d0); }
+.shadow-fairy    { filter: drop-shadow(0 0 4px #ee99ac) drop-shadow(0 0 1px #ee99ac); }
 .shadow-dark     { filter: drop-shadow(0 0 4px #705848) drop-shadow(0 0 1px #705848); }
 
 .pokemon-img {
   transition: filter 0.2s ease;
 }
 
-.shadow-modal-poison   { filter: drop-shadow(0 0 12px #a040a0) drop-shadow(0 0 4px #a040a0) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-flying   { filter: drop-shadow(0 0 12px #a98ff3) drop-shadow(0 0 4px #a98ff3) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-normal   { filter: drop-shadow(0 0 12px #a8a878) drop-shadow(0 0 4px #a8a878) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-fire     { filter: drop-shadow(0 0 12px #f08030) drop-shadow(0 0 4px #f08030) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-water    { filter: drop-shadow(0 0 12px #6890f0) drop-shadow(0 0 4px #6890f0) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-grass    { filter: drop-shadow(0 0 12px #78c850) drop-shadow(0 0 4px #78c850) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-fire     { filter: drop-shadow(0 0 12px #f08030) drop-shadow(0 0 4px #f08030) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-bug      { filter: drop-shadow(0 0 12px #a8b820) drop-shadow(0 0 4px #a8b820) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-normal   { filter: drop-shadow(0 0 12px #a8a878) drop-shadow(0 0 4px #a8a878) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-electric { filter: drop-shadow(0 0 12px #f8d030) drop-shadow(0 0 4px #f8d030) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-ground   { filter: drop-shadow(0 0 12px #e0c068) drop-shadow(0 0 4px #e0c068) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-rock     { filter: drop-shadow(0 0 12px #b8a038) drop-shadow(0 0 4px #b8a038) drop-shadow(0 0 1px #ffffff); }
-.shadow-modal-fairy    { filter: drop-shadow(0 0 12px #ee99ac) drop-shadow(0 0 4px #ee99ac) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-ice      { filter: drop-shadow(0 0 12px #98d8d8) drop-shadow(0 0 4px #98d8d8) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-fighting { filter: drop-shadow(0 0 12px #c03028) drop-shadow(0 0 4px #c03028) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-poison   { filter: drop-shadow(0 0 12px #a040a0) drop-shadow(0 0 4px #a040a0) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-ground   { filter: drop-shadow(0 0 12px #e0c068) drop-shadow(0 0 4px #e0c068) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-flying   { filter: drop-shadow(0 0 12px #a890f0) drop-shadow(0 0 4px #a890f0) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-psychic  { filter: drop-shadow(0 0 12px #f85888) drop-shadow(0 0 4px #f85888) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-bug      { filter: drop-shadow(0 0 12px #a8b820) drop-shadow(0 0 4px #a8b820) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-rock     { filter: drop-shadow(0 0 12px #b8a038) drop-shadow(0 0 4px #b8a038) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-ghost    { filter: drop-shadow(0 0 12px #705898) drop-shadow(0 0 4px #705898) drop-shadow(0 0 1px #ffffff); }
-.shadow-ice            { filter: drop-shadow(0 0 12px #98d8d8) drop-shadow(0 0 4px #98d8d8) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-dragon   { filter: drop-shadow(0 0 12px #7038f8) drop-shadow(0 0 4px #7038f8) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-steel    { filter: drop-shadow(0 0 12px #b8b8d0) drop-shadow(0 0 4px #b8b8d0) drop-shadow(0 0 1px #ffffff); }
+.shadow-modal-fairy    { filter: drop-shadow(0 0 12px #ee99ac) drop-shadow(0 0 4px #ee99ac) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-dark     { filter: drop-shadow(0 0 12px #705848) drop-shadow(0 0 4px #705848) drop-shadow(0 0 1px #ffffff); }
