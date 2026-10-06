@@ -4,6 +4,10 @@ let allPokemon = [];
 let displayedPokemon = [];
 let currentPokemonIndex = 0;
 
+function init() {
+  fetchPokemonList();
+}
+
 function showSpinner() {
   document.getElementById('loading-spinner').classList.remove('d-none');
 }
@@ -36,6 +40,32 @@ async function fetchPokemonDetails(results) {
   }
 }
 
+function getSecondaryShadowClass(pokemon, prefix = 'shadow-') {
+  if (pokemon.types.length > 1) {
+    return `${prefix}${pokemon.types[1].type.name}`;
+  }
+  return '';
+}
+
+function buildPokemonTypesHtml(types) {
+  let typesHtml = '';
+  for (let i = 0; i < types.length; i++) {
+    typesHtml += createSingleTypeBadgeTemplate(types[i].type.name);
+  }
+  return typesHtml;
+}
+
+function buildPokemonStatsHtml(stats) {
+  let statsHtml = '';
+  for (let i = 0; i < 3; i++) {
+    const statName = stats[i].stat.name;
+    const statValue = stats[i].base_stat;
+    const fillWidth = Math.min(statValue, 100);
+    statsHtml += createSingleStatRowTemplate(statName, statValue, fillWidth);
+  }
+  return statsHtml;
+}
+
 function renderPokemonCards(pokemonList) {
   displayedPokemon = pokemonList;
   const container = document.getElementById("pokedex-container");
@@ -43,8 +73,10 @@ function renderPokemonCards(pokemonList) {
 
   for (let i = 0; i < pokemonList.length; i++) {
     const pokemon = pokemonList[i];
+    const secondaryClass = getSecondaryShadowClass(pokemon, 'shadow-');
+    const typesHtml = buildPokemonTypesHtml(pokemon.types);
 
-    container.innerHTML += createPokemonCardTemplate(pokemon);
+    container.innerHTML += createPokemonCardTemplate(pokemon, secondaryClass, typesHtml);
   }
 }
 
@@ -64,8 +96,14 @@ function toggleLoadMoreButton(searchTerm) {
 
 function filterPokemon() {
   const searchPokemonName = document.getElementById('search-input').value.toLowerCase();
-  const filteredPokemon = [];
 
+  if (searchPokemonName.length === 0) {
+    toggleLoadMoreButton("");
+    return renderPokemonCards(allPokemon);
+  }
+  if (searchPokemonName.length < 3) return;
+
+  const filteredPokemon = [];
   for (let i = 0; i < allPokemon.length; i++) {
     const pokemon = allPokemon[i];
     if (pokemon.name.toLowerCase().includes(searchPokemonName)) {
@@ -79,9 +117,8 @@ function filterPokemon() {
 
 function closeModal() {
   document.body.classList.remove('no-scroll');
-
   const modal = document.getElementById('pokemon-modal');
-  modal.classList.add('d-none');
+  modal.close();
 }
 
 function openModal(id) {
@@ -95,9 +132,16 @@ function openModal(id) {
   }
 
   const modal = document.getElementById('pokemon-modal');
-  modal.classList.remove('d-none');
+  modal.showModal();
 
   updatePokemonModal();
+}
+
+function handleBackdropClick(event) {
+  const modal = document.getElementById('pokemon-modal');
+  if (event.target === modal) {
+    closeModal();
+  }
 }
 
 function updatePokemonModal() {
@@ -108,8 +152,13 @@ function updatePokemonModal() {
   const modalContent = document.querySelector('.modal-content');
   const primaryType = pokemon.types[0].type.name;
 
+  const secondaryClass = getSecondaryShadowClass(pokemon, 'shadow-modal-');
+  const heightMeters = (pokemon.height / 10).toString();
+  const weightKg = (pokemon.weight / 10).toString();
+  const statsHtml = buildPokemonStatsHtml(pokemon.stats);
+
   modalContent.className = `modal-content ${primaryType}`;
-  modalBody.innerHTML = createPokemonDetailTemplate(pokemon);
+  modalBody.innerHTML = createPokemonDetailTemplate(pokemon, secondaryClass, heightMeters, weightKg, statsHtml);
 }
 
 function nextPokemon() {
@@ -129,5 +178,3 @@ function prevPokemon() {
   }
   updatePokemonModal();
 }
-
-fetchPokemonList();

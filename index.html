@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body onload="init()">
     <div id="loading-spinner" class="spinner-overlay d-none">
         <div class="spinner"></div>
     </div>
@@ -24,15 +24,12 @@
         <button id="load-more-btn" onclick="loadMorePokemon()">Load More</button>
     </main>
 
-    <div id="pokemon-modal" class="modal-overlay d-none" onclick="closeModal()">
-
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closeModal()">X</button>
-            <div id="modal-body">
-
-            </div>
+    <dialog id="pokemon-modal" data-id="dialog" onclick="handleBackdropClick(event)">
+        <div class="modal-content" data-id="overlay-pokemon-name">
+            <div id="modal-body"></div>
         </div>
-    </div>
+    </dialog>
+    
     <script src="./scripts/templates.js"></script>
     <script src="./script.js"></script>
 </body>
