@@ -34,8 +34,13 @@ async function fetchPokemonList() {
   try {
     showSpinner();
     const results = await loadPokemonApiData(); 
-    await fetchPokemonDetails(results);
-    renderPokemonCards(allPokemon);
+    const newBatch = await fetchPokemonDetails(results);
+
+    if (currentOffset === 0) {
+      renderPokemonCards(newBatch);
+    } else {
+      renderAddedPokemon(newBatch);
+    }
   } catch (error) {
     console.error("Failed to load data.:", error);
   } finally {
@@ -45,11 +50,16 @@ async function fetchPokemonList() {
 }
 
 async function fetchPokemonDetails(results) {
+  const newBatch = [];
+
   for (let i = 0; i < results.length; i++) {
     const detailResponse = await fetch(results[i].url);
     const pokemonDetail = await detailResponse.json();
     allPokemon.push(pokemonDetail);
+    newBatch.push(pokemonDetail);
   }
+
+  return newBatch;
 }
 
 function getSecondaryShadowClass(pokemon, prefix = 'shadow-') {
@@ -85,6 +95,19 @@ function renderPokemonCards(pokemonList) {
 
   for (let i = 0; i < pokemonList.length; i++) {
     const pokemon = pokemonList[i];
+    const secondaryClass = getSecondaryShadowClass(pokemon, 'shadow-');
+    const typesHtml = buildPokemonTypesHtml(pokemon.types);
+
+    container.innerHTML += createPokemonCardTemplate(pokemon, secondaryClass, typesHtml);
+  }
+}
+
+function renderAddedPokemon(newPokemonList) {
+  displayedPokemon = allPokemon;
+  const container = document.getElementById("pokedex-container");
+
+  for (let i = 0; i < newPokemonList.length; i++) {
+    const pokemon = newPokemonList[i];
     const secondaryClass = getSecondaryShadowClass(pokemon, 'shadow-');
     const typesHtml = buildPokemonTypesHtml(pokemon.types);
 
