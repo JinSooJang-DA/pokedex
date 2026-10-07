@@ -39,12 +39,7 @@ body.no-scroll {
   max-width: 80vw;
   height: auto;  
   object-fit: contain;
-  transition: transform 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.pokedex-logo:hover {
-  transform: scale(1.05);
+  cursor: default;
 }
 
 #search-input {
