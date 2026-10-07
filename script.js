@@ -3,6 +3,7 @@ let currentOffset = 0;
 let allPokemon = [];
 let displayedPokemon = [];
 let currentPokemonIndex = 0;
+let isLoading = false;
 
 function init() {
   fetchPokemonList();
@@ -17,6 +18,8 @@ function hideSpinner() {
 }
 
 async function fetchPokemonList() {
+  if (isLoading) return; 
+  isLoading = true; 
   try {
     showSpinner();
     const url = `https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${currentOffset}`;
@@ -29,6 +32,7 @@ async function fetchPokemonList() {
     console.error("Failed to load data.:", error);
   } finally {
     hideSpinner();
+    isLoading = false;
   }
 }
 
@@ -177,4 +181,84 @@ function prevPokemon() {
     currentPokemonIndex = currentPokemonIndex - 1;
   }
   updatePokemonModal();
+}
+
+const autoToggle = document.getElementById("auto-scroll-toggle");
+const loadBtn = document.getElementById("load-more-btn");
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting && !isLoading && autoToggle && autoToggle.checked) {
+      loadMorePokemon();
+    }
+  });
+}, { threshold: 0.1 });
+
+if (loadBtn) {
+  scrollObserver.observe(loadBtn);
+}
+
+if (autoToggle) {
+  autoToggle.addEventListener("change", () => {
+    if (autoToggle.checked && loadBtn) {
+      const rect = loadBtn.getBoundingClientRect();
+        if (rect.top < window.innerHeight && !isLoading) {
+        loadMorePokemon();
+      }
+    }
+  });
+}
+
+const backToTopBtn = document.getElementById("back-to-top-btn");
+
+if (backToTopBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+const btnA = document.getElementById("btn-top");
+const giantPika = document.getElementById("giant-pikachu");
+
+if (btnA && giantPika) {
+  btnA.addEventListener("click", () => {
+    const pikaSound = new Audio("./assets/sounds/pikachu_scream.mp3");
+    pikaSound.volume = 0.4; 
+    pikaSound.play().catch(() => {});
+
+    giantPika.classList.add("show");
+
+    setTimeout(() => {
+      giantPika.classList.remove("show");
+    }, 1500);
+  });
+}
+
+function closeGiantPikachu() {
+  if (giantPika) giantPika.classList.remove("show");
+}
+
+const btnB = document.getElementById("btn-sound");
+
+if (btnB) {
+  btnB.addEventListener("click", () => {
+    if (displayedPokemon.length === 0) return;
+
+    const centerSound = new Audio("./assets/sounds/pkmncenter.mp3");
+    centerSound.volume = 0.5;
+    centerSound.play().catch(() => {});
+
+    const randomIndex = Math.floor(Math.random() * displayedPokemon.length);
+    const chosenPokemon = displayedPokemon[randomIndex];
+
+    openModal(chosenPokemon.id);
+  });
 }

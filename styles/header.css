@@ -1,0 +1,216 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  user-select: none;
+}
+
+.arcade-controller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 70px;
+}
+
+.joystick-input {
+  display: none;
+}
+
+.joystick-base {
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle, #333333 40%, #111111 80%, #000000 100%);
+  border-radius: 50%;
+  border: 2px solid #555555;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.joystick-stick {
+  width: 6px;
+  height: 28px;
+  background: linear-gradient(to right, #cfcfcf, #ffffff, #888888);
+  border-radius: 3px;
+  position: absolute;
+  bottom: 14px;
+  transform-origin: bottom center;
+  transform: rotate(-22deg); 
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.joystick-ball {
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at 35% 30%, #ff7777, #d90429 60%, #7a0010 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  transition: filter 0.2s ease;
+}
+
+.joystick-input:checked + .joystick-base .joystick-stick {
+  transform: rotate(22deg);
+}
+
+.joystick-input:checked + .joystick-base .joystick-ball {
+  background: radial-gradient(circle at 35% 30%, #ff9e9e, #ff002b 60%, #990014 100%);
+  filter: drop-shadow(0 0 8px #ff334b);
+}
+
+.arcade-btn-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 44px; 
+}
+
+.arcade-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #222222;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  outline: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.arcade-btn span {
+  font-size: 11px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.btn-red {
+  background: radial-gradient(circle at 35% 30%, #ff6b6b, #d90429 70%, #7a0010 100%);
+  box-shadow: 0 3px 0 #4a0008, 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.btn-blue {
+  background: radial-gradient(circle at 35% 30%, #5dade2, #2980b9 70%, #154360 100%);
+  box-shadow: 0 3px 0 #0d2838, 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.arcade-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 #000000, 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.arcade-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #888888;
+  margin-top: 4px;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.joystick-input:checked ~ .arcade-label {
+  color: #ff3e3e;
+  text-shadow: 0 0 6px rgba(255, 62, 62, 0.8);
+}
+
+@media (max-width: 430px) {
+  .logo-container {
+    gap: 8px; 
+    width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
+  }
+
+  .pokedex-logo {
+    width: 170px !important; 
+    min-width: 140px;
+  }
+
+  
+  .arcade-controller {
+    width: 50px;
+  }
+
+ 
+  .joystick-base {
+    width: 36px;
+    height: 36px;
+  }
+
+  .joystick-stick {
+    height: 22px;
+    bottom: 11px;
+  }
+
+  .joystick-ball {
+    width: 18px;
+    height: 18px;
+    top: -10px;
+  }
+
+  .arcade-btn-group {
+    height: 36px;
+    gap: 4px;
+  }
+
+  .arcade-btn {
+    width: 22px;
+    height: 22px;
+  }
+
+  .arcade-btn span {
+    font-size: 9px;
+  }
+
+
+  .arcade-label {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+}
+
+
+.giant-pikachu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.giant-pikachu-overlay img {
+  width: 320px;
+  max-width: 80vw;
+  transform: scale(0.2) rotate(-15deg);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.giant-pikachu-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.giant-pikachu-overlay.show img {
+  transform: scale(1.1) rotate(0deg);
+}

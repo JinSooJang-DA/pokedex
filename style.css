@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -551,6 +559,10 @@ body.no-scroll {
   }
 }
 
+.pokemon-img {
+  transition: filter 0.2s ease;
+}
+
 .shadow-normal   { filter: drop-shadow(0 0 4px #a8a878) drop-shadow(0 0 1px #a8a878); }
 .shadow-fire     { filter: drop-shadow(0 0 4px #f08030) drop-shadow(0 0 1px #f08030); }
 .shadow-water    { filter: drop-shadow(0 0 4px #6890f0) drop-shadow(0 0 1px #6890f0); }
@@ -570,9 +582,6 @@ body.no-scroll {
 .shadow-fairy    { filter: drop-shadow(0 0 4px #ee99ac) drop-shadow(0 0 1px #ee99ac); }
 .shadow-dark     { filter: drop-shadow(0 0 4px #705848) drop-shadow(0 0 1px #705848); }
 
-.pokemon-img {
-  transition: filter 0.2s ease;
-}
 
 .shadow-modal-normal   { filter: drop-shadow(0 0 12px #a8a878) drop-shadow(0 0 4px #a8a878) drop-shadow(0 0 1px #ffffff); }
 .shadow-modal-fire     { filter: drop-shadow(0 0 12px #f08030) drop-shadow(0 0 4px #f08030) drop-shadow(0 0 1px #ffffff); }

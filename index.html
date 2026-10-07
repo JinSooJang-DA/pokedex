@@ -7,8 +7,10 @@
     <meta property="og:image" content="./assets/img/favicon-pokedex.webp">
     <title>Pokedex</title>
     <link rel="icon" type="image/webp" href="./assets/img/favicon-pokedex.webp">
-    
+
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/backtotopbtn.css">
+    <link rel="stylesheet" href="./styles/header.css">
 </head>
 
 <body onload="init()">
@@ -17,8 +19,33 @@
     </div>
 
     <header class="header">
-        <img src="./assets/img/pokedex-title.webp" alt="Pokédex Logo" class="pokedex-logo">
-        <input type="text" id="search-input" oninput="filterPokemon()" placeholder="Search Pokémon...">
+        <div class="logo-container">
+            <div class="arcade-controller left-stick">
+                <input type="checkbox" id="auto-scroll-toggle" class="joystick-input">
+                <label for="auto-scroll-toggle" class="joystick-base" title="Auto Scroll On/Off">
+                    <div class="joystick-stick">
+                        <div class="joystick-ball"></div>
+                    </div>
+                </label>
+                <span class="arcade-label">AUTO LOADING</span>
+            </div>
+
+            <img src="./assets/img/pokedex-title.webp" alt="Pokédex" class="pokedex-logo" onclick="resetView()">
+
+            <div class="arcade-controller right-buttons">
+                <div class="arcade-btn-group">
+                    <button type="button" class="arcade-btn btn-red" id="btn-top" title="Scroll to Top">
+                        <span>A</span>
+                    </button>
+                    <button type="button" class="arcade-btn btn-blue" id="btn-sound" title="Action">
+                        <span>B</span>
+                    </button>
+                </div>
+                <span class="arcade-label">ACTION</span>
+            </div>
+        </div>
+
+        <input type="text" id="search-input" placeholder="Search Pokémon...">
     </header>
 
     <main>
@@ -31,7 +58,14 @@
             <div id="modal-body"></div>
         </div>
     </dialog>
-    
+    <button type="button" id="back-to-top-btn" class="back-to-top-btn" title="Back to Top">
+        <img src="./assets/img/favicon-pokedex.webp" alt="Top" class="top-ball-icon">
+    </button>
+    <div id="giant-pikachu" class="giant-pikachu-overlay" onclick="closeGiantPikachu()">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            alt="Giant Pikachu">
+    </div>
+
     <script src="./scripts/templates.js"></script>
     <script src="./script.js"></script>
 </body>
